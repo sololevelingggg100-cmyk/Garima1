@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garima ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            max-width: 90vw;
+            max-height: 70vh;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+        .fade {
+            animation: fade 1s ease;
+        }
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgm" src="music.mp3" autoplay loop></audio>
+
+    <div class="container">
+        <img id="photo" class="fade" src="photo1.jpg" />
+        <div id="msg" class="message fade">Sweet message line 1<br>Sweet message line 2</div>
+    </div>
+
+    <script>
+        const photos = [
+            "photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg",
+            "photo7.jpg","photo8.jpg","photo9.jpg","photo10.jpg","photo11.jpg","photo12.jpg"
+        ];
+
+        const messages = [
+            "Message 1 line 1<br>Message 1 line 2",
+            "Message 2 line 1<br>Message 2 line 2",
+            "Message 3 line 1<br>Message 3 line 2",
+            "Message 4 line 1<br>Message 4 line 2",
+            "Message 5 line 1<br>Message 5 line 2",
+            "Message 6 line 1<br>Message 6 line 2",
+            "Message 7 line 1<br>Message 7 line 2",
+            "Message 8 line 1<br>Message 8 line 2",
+            "Message 9 line 1<br>Message 9 line 2",
+            "28-07-2022 when we met in a mall you were glowing in black, even with a mask your eyes were enough to melt my heart.",
+            "4-09-2025 you posted a sky picture, and my crush posting a sky pic felt like the universe giving me a chance.",
+            "Garima Rai… will you hold my hand? Will you be my girlfriend? ❤️"
+        ];
+
+        let index = 0;
+        const img = document.getElementById("photo");
+        const msg = document.getElementById("msg");
+
+        setInterval(() => {
+            index = (index + 1) % photos.length;
+            img.classList.remove("fade");
+            msg.classList.remove("fade");
+
+            setTimeout(() => {
+                img.src = photos[index];
+                msg.innerHTML = messages[index];
+                img.classList.add("fade");
+                msg.classList.add("fade");
+            }, 200);
+        }, 4000);
+    </script>
+</body>
+</html>
